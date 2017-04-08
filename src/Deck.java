@@ -24,11 +24,9 @@ public class Deck {
         for(i=1; i<53;){
             int number = (int) (Math.floor(Math.random()*13)+1);
             Card card = generateCard(number);
-            System.out.print("Carta: "+card+" of "+card.getTypeStr()+".\n");
             deck.add(card);
             i++;
         }
-        System.out.println("\n>>>> Baraja Rellenada!\n"+deck);
     }
 
     private Card generateCard(int number){
@@ -49,7 +47,6 @@ public class Deck {
             case 13:    card = Card.KING;   break;
         }
         generateType(card);
-        if (card == null) System.out.println("MACHO QUE LA CARTA ES NULA JOE\n");
         return card;
     }
 
