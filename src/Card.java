@@ -1,4 +1,10 @@
 package util;
+
+/**
+ * Enum of poker cards numbers.
+ * The card has a type (Type), and a number/figure.
+ * @author Velastroll - github.com/Velastroll
+ */
 public enum Card{
     TWO(), THREE(), FOUR(), FIVE(),
     SIX(), SEVEN(), EIGHT(), NINE(),
@@ -6,13 +12,27 @@ public enum Card{
 
     Type type = null;
 
+    /**
+     * Set a type. Its a enum - DIAMONDS, SPADES, HEARTS, CLUB.
+     * @param type of Card.
+     */
     public void setType(Type ty){
         this.type = ty;
     }
 
+    /**
+     * Return a String with the card type.
+     * @return String of card type.
+     */
+
     public String getTypeStr(){
         return type.getTypeString();
     }
+
+    /**
+     * Return a String with the card number/figure.
+     * @return String of card number/figure.
+     */
     public String getNumberStr(){
         switch(this){
             case ACE:   return "ACE";
@@ -32,12 +52,34 @@ public enum Card{
         return "";
     }
 
-    /**    
-    public static void main (String[] args){ 
-        Type espadas = Type.SPADES;
-        Card carta = Card.ACE;
-        carta.setType(espadas);
-        System.out.print(carta.getNumberStr() + " de " + carta.getTypeStr() + "\n");
+    /**
+     * Return a String with the number/figure and type card.
+     * @return String of card.
+     */
+    public String getCard(){
+        return (this.getNumberStr() + " of " + getTypeStr() + ".");
     }
-    **/
+
+    /**
+     * Return the card value.
+     * @return int of card value.
+     */
+    public int getValue(){
+        switch(this){
+            case ACE:   return 11;
+            case TWO:   return 2;
+            case THREE: return 3;
+            case FOUR:  return 4;
+            case FIVE:  return 5;
+            case SIX:   return 6;
+            case SEVEN: return 7;
+            case EIGHT: return 8;
+            case NINE:  return 9;
+            case TEN:   return 10;
+            case JACK:  return 10;
+            case QUEEN: return 10;
+            case KING:  return 10;
+        }
+        return 100;
+    }
 }

@@ -1,25 +1,36 @@
 package util;
 
 import java.util.ArrayList;
-import util.CardException;
-import util.Card;
-
+/** 
+ * Implementation of a poker cards Deck - (Baraja).
+ * @author Velastroll - github.com/Velastroll
+ */
 public class Deck {
 
     ArrayList<Card> deck;
     int i;
 
+    /**
+     * Implementing a new Deck of cluttered poker Cards.
+     */
     public Deck(){
         deck = new ArrayList<Card>();
         fillin();
     }
 
+    /**
+     * Method that distributed one Card.
+     * @return Card that has been distributed.
+     */
     public Card getCard(){
         Card c = deck.remove(0);
-        System.out.println("It's a "+c+" of "+c.getTypeStr());
+        System.out.println(c.getCard());
         return c;
     }
 
+    /**
+     * Method that generate and clutter the cards.
+     */
     public void fillin(){
         for(i=1; i<53;){
             int number = (int) (Math.floor(Math.random()*13)+1);
@@ -63,14 +74,11 @@ public class Deck {
         }
     }
     
+    /**
+     * Method that returns the size of the deck available.
+     * @return int deck size.
+     */
     public int getSize(){
         return deck.size();
-    }
-
-    public static void main (String [] args){
-        Deck baraja = new Deck();
-        System.out.println("Numero de cartas: "+baraja.getSize());
-        baraja.getCard();
-        System.out.println("Numero de cartas: "+baraja.getSize());
-    }
+    }    
 }
