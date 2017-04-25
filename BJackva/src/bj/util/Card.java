@@ -5,19 +5,36 @@ package bj.util;
  * The card has a type (Type), and a number/figure.
  * @author Velastroll - github.com/Velastroll
  */
-public enum Card{
-    TWO(), THREE(), FOUR(), FIVE(),
-    SIX(), SEVEN(), EIGHT(), NINE(),
-    TEN(), JACK(), QUEEN(), KING(), ACE();
+public class Card{
 
-    Type type = null;
+    int number;
+    String type;
 
+    public Card(){
+        this.number = 22;
+        this.type = "";
+    }
+    
+    public Card (int number, String type){
+        this.number = number;
+        this.type = type;
+    }
+    
+    public Card (int number, int type){
+        this.number = number;
+        if (type==0) this.type="p";
+        if (type==1) this.type="d";
+        if (type==2) this.type="c";
+        if (type==3) this.type="t";
+    }
+    
+    
     /**
      * Set a type. Its a enum - DIAMONDS, SPADES, HEARTS, CLUB.
      * @param type of Card.
      */
-    public void setType(Type ty){
-        this.type = ty;
+    public void setType(String type){
+        this.type = type;
     }
 
     /**
@@ -25,31 +42,21 @@ public enum Card{
      * @return String of card type.
      */
 
-    public String getTypeStr(){
-        return type.getTypeString();
+    public String getType(){
+        return type;
     }
 
+    
+    public void setNumber(int number){
+        this.number = number;
+    }
+    
     /**
      * Return a String with the card number/figure.
      * @return String of card number/figure.
      */
-    public String getNumberStr(){
-        switch(this){
-            case ACE:   return "ACE";
-            case TWO:   return "Two";
-            case THREE: return "Three";
-            case FOUR:  return "Four";
-            case FIVE:  return "Five";
-            case SIX:   return "Six";
-            case SEVEN: return "Seven";
-            case EIGHT: return "Eight";
-            case NINE:  return "Nine";
-            case TEN:   return "Ten";
-            case JACK:  return "Jack";
-            case QUEEN: return "Queen";
-            case KING:  return "King";
-        }
-        return "";
+    public int getNumber(){
+        return number;
     }
 
     /**
@@ -57,7 +64,7 @@ public enum Card{
      * @return String of card.
      */
     public String getCard(){
-        return (this.getNumberStr() + " of " + getTypeStr() + ".");
+        return (this.type + "" + this.number);
     }
 
     /**
@@ -65,21 +72,8 @@ public enum Card{
      * @return int of card value.
      */
     public int getValue(){
-        switch(this){
-            case ACE:   return 11;
-            case TWO:   return 2;
-            case THREE: return 3;
-            case FOUR:  return 4;
-            case FIVE:  return 5;
-            case SIX:   return 6;
-            case SEVEN: return 7;
-            case EIGHT: return 8;
-            case NINE:  return 9;
-            case TEN:   return 10;
-            case JACK:  return 10;
-            case QUEEN: return 10;
-            case KING:  return 10;
-        }
-        return 100;
+        if (this.number==1) return 11;
+        else if (this.number<10) return this.number;
+        else return 10;
     }
 }

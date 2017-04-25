@@ -9,7 +9,9 @@ import bj.game.Player;
 import bj.util.Card;
 import bj.util.Deck;
 import bj.util.Hand;
+import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 /**
  *
@@ -20,6 +22,7 @@ public class PlayingWindow extends javax.swing.JFrame {
     
     private Deck baraja;
     private ArrayList<Player> mesa;
+    private ArrayList<JLabel> playerlabel;
     private Player p1;
     private Player p2;
     private Player p3;
@@ -35,12 +38,16 @@ public class PlayingWindow extends javax.swing.JFrame {
         
         baraja = new Deck();
         mesa = new ArrayList<Player>();
-        p1 = new Player();  mesa.add(p1);
-        p2 = new Player();  mesa.add(p2);
-        p3 = new Player();  mesa.add(p3);
-        p4 = new Player();  mesa.add(p4);
-        p5 = new Player();  mesa.add(p5);
-
+        playerlabel = new ArrayList<JLabel>();
+        
+        p1 = new Player("player1");  mesa.add(p1);  playerlabel.add(jLabel5);
+        p2 = new Player("player2");  mesa.add(p2);  playerlabel.add(jLabel4);
+        p3 = new Player("Eustaquio");  mesa.add(p3);  playerlabel.add(jLabel3);
+        p4 = new Player("player4");  mesa.add(p4);  playerlabel.add(jLabel2);
+        p5 = new Player("player5");  mesa.add(p5);  playerlabel.add(jLabel1);
+        
+        for(int i = 0; i<5; i++) playerlabel.get(i).setText(mesa.get(i).getName());
+        
     }
 
     /**
@@ -118,7 +125,7 @@ public class PlayingWindow extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jPanel8.setBackground(new java.awt.Color(12, 80, 11));
@@ -168,11 +175,11 @@ public class PlayingWindow extends javax.swing.JFrame {
             panelCroupierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCroupierLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelCroupierLayout.setVerticalGroup(
@@ -191,7 +198,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer5.setBackground(new java.awt.Color(255, 142, 0));
 
         mesaPlayer5.setBackground(new java.awt.Color(12, 110, 10));
-        mesaPlayer5.setLayout(new java.awt.GridLayout(8, 2));
+        mesaPlayer5.setLayout(new java.awt.GridLayout(4, 2));
 
         jPanel2.setBackground(new java.awt.Color(12, 110, 10));
 
@@ -212,7 +219,7 @@ public class PlayingWindow extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(infoP5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -236,7 +243,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer5Layout.setVerticalGroup(
             panelPlayer5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPlayer5Layout.createSequentialGroup()
-                .addComponent(mesaPlayer5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mesaPlayer5, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -246,7 +253,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer4.setBackground(new java.awt.Color(146, 255, 0));
 
         mesaPlayer4.setBackground(new java.awt.Color(12, 110, 10));
-        mesaPlayer4.setLayout(new java.awt.GridLayout(8, 2));
+        mesaPlayer4.setLayout(new java.awt.GridLayout(4, 2));
 
         jPanel4.setBackground(new java.awt.Color(12, 110, 10));
 
@@ -267,7 +274,7 @@ public class PlayingWindow extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(infoP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -291,7 +298,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer4Layout.setVerticalGroup(
             panelPlayer4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPlayer4Layout.createSequentialGroup()
-                .addComponent(mesaPlayer4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mesaPlayer4, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -301,7 +308,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer3.setBackground(new java.awt.Color(9, 254, 240));
 
         mesaPlayer3.setBackground(new java.awt.Color(12, 110, 10));
-        mesaPlayer3.setLayout(new java.awt.GridLayout(8, 2));
+        mesaPlayer3.setLayout(new java.awt.GridLayout(4, 2));
 
         jPanel6.setBackground(new java.awt.Color(12, 110, 10));
 
@@ -322,7 +329,7 @@ public class PlayingWindow extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(infoP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -346,7 +353,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer3Layout.setVerticalGroup(
             panelPlayer3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPlayer3Layout.createSequentialGroup()
-                .addComponent(mesaPlayer3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mesaPlayer3, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -356,7 +363,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer2.setBackground(new java.awt.Color(253, 43, 222));
 
         mesaPlayer2.setBackground(new java.awt.Color(12, 110, 10));
-        mesaPlayer2.setLayout(new java.awt.GridLayout(8, 2));
+        mesaPlayer2.setLayout(new java.awt.GridLayout(4, 2));
 
         jPanel10.setBackground(new java.awt.Color(12, 110, 10));
 
@@ -377,7 +384,7 @@ public class PlayingWindow extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(infoP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -401,7 +408,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer2Layout.setVerticalGroup(
             panelPlayer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPlayer2Layout.createSequentialGroup()
-                .addComponent(mesaPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mesaPlayer2, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -411,7 +418,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer1.setBackground(new java.awt.Color(11, 13, 195));
 
         mesaPlayer1.setBackground(new java.awt.Color(12, 110, 10));
-        mesaPlayer1.setLayout(new java.awt.GridLayout(8, 2));
+        mesaPlayer1.setLayout(new java.awt.GridLayout(4, 2));
 
         jPanel12.setBackground(new java.awt.Color(12, 110, 10));
 
@@ -432,7 +439,7 @@ public class PlayingWindow extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(infoP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -456,7 +463,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelPlayer1Layout.setVerticalGroup(
             panelPlayer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPlayer1Layout.createSequentialGroup()
-                .addComponent(mesaPlayer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mesaPlayer1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -468,14 +475,14 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelMesaLayout.setHorizontalGroup(
             panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelCroupier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
         );
         panelMesaLayout.setVerticalGroup(
             panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMesaLayout.createSequentialGroup()
                 .addComponent(panelCroupier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelMesa, "card2");
@@ -530,16 +537,29 @@ public class PlayingWindow extends javax.swing.JFrame {
     
     public void reparteCartas(){
         for (Player p: mesa){
-            p.addCard(baraja.getCard());
-            //imprimeCartas();
+            if (p.getStatus()){
+                p.addCard(baraja.getCard());
+                limpiaMesas();
+                imprimeCartas();
+                actualizaValor();
+            }
         }
-        for (Player p: mesa){
-            p.addCard(baraja.getCard());
-            //imprimeCartas();
-            actualizaValor();
-        }
-        imprimeCartas();
+        actualizaStatus(); 
     }
+    
+    private void actualizaStatus(){
+        if (!p1.getStatus()) infoP1.setForeground(Color.RED);
+        else infoP1.setForeground(Color.WHITE);
+        if (!p2.getStatus()) infoP2.setForeground(Color.RED);
+        else infoP2.setForeground(Color.WHITE);
+        if (!p3.getStatus()) infoP3.setForeground(Color.RED);
+        else infoP3.setForeground(Color.WHITE);
+        if (!p4.getStatus()) infoP4.setForeground(Color.RED);
+        else infoP4.setForeground(Color.WHITE);
+        if (!p5.getStatus()) infoP5.setForeground(Color.RED);
+        else infoP5.setForeground(Color.WHITE);
+    }
+    
     
     private void actualizaValor(){
         infoP1.setText("Puntos: "+ p1.getPoints());
@@ -553,20 +573,26 @@ public class PlayingWindow extends javax.swing.JFrame {
         ArrayList<Card> cartas;
         //limpiaMesas();
         cartas = p1.getHand().getHand();
-        for (Card c: cartas)
-            mesaPlayer1.add(new javax.swing.JButton(c.getCard()));       
+        for (Card c: cartas){
+            String url = "/images/card/"+c.getCard()+".png";
+            System.out.println("Intento de url: "+ url);
+            mesaPlayer1.add(new javax.swing.JButton(new javax.swing.ImageIcon(getClass().getResource(url))));
+        }
         cartas = p2.getHand().getHand();
         for (Card c: cartas)
-            mesaPlayer2.add(new javax.swing.JButton(c.getCard()));        
+            mesaPlayer2.add(new javax.swing.JButton(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+c.getCard()+".png"))));
+        
         cartas = p3.getHand().getHand();
         for (Card c: cartas)
-            mesaPlayer3.add(new javax.swing.JButton(c.getCard()));
+            mesaPlayer3.add(new javax.swing.JButton(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+c.getCard()+".png"))));
+        
         cartas = p4.getHand().getHand();
         for (Card c: cartas)
-            mesaPlayer4.add(new javax.swing.JButton(c.getCard()));
+            mesaPlayer4.add(new javax.swing.JButton(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+c.getCard()+".png"))));
+        
         cartas = p5.getHand().getHand();
         for (Card c: cartas)
-            mesaPlayer5.add(new javax.swing.JButton(c.getCard()));
+            mesaPlayer5.add(new javax.swing.JButton(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+c.getCard()+".png"))));
     }
     
     private void limpiaMesas(){
@@ -575,14 +601,15 @@ public class PlayingWindow extends javax.swing.JFrame {
         mesaPlayer3.removeAll();
         mesaPlayer4.removeAll();
         mesaPlayer5.removeAll();
+        repaint();
     }
 
     private void rebootPlayers(){
-        p1.rebootHand();
-        p2.rebootHand();
-        p3.rebootHand();
-        p4.rebootHand();
-        p5.rebootHand();
+        p1.reboot();
+        p2.reboot();
+        p3.reboot();
+        p4.reboot();
+        p5.reboot();
     }
     
     

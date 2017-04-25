@@ -24,6 +24,7 @@ public class Hand{
      * @param Card c is the new receibed card.
      */
     public void newCard(Card c){
+        System.out.println(">> Otorgado: " + c.getCard());
         if (c!=null){
             hand.add(c);
         }
@@ -39,7 +40,7 @@ public class Hand{
             value += c.getValue();
         }
         for (Card c: hand){
-            if (value>=22 && c==Card.ACE){
+            if (value>=22 && c.getNumber()==1){
                 value-=10;
             }
         }
@@ -56,7 +57,7 @@ public class Hand{
     
     private boolean hasACE(){
         for (Card c: hand){
-            if (c==Card.ACE) return true;
+            if (c.getNumber()==1) return true;
         }
         return false;
     }

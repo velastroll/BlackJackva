@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Deck {
 
     ArrayList<Card> deck;
+    int[] number;
     int i;
 
     /**
@@ -17,6 +18,7 @@ public class Deck {
     public Deck(){
         deck = new ArrayList<Card>();
         fillin();
+        for (Card c: deck) System.out.println("Viendo: "+c.getCard());
     }
 
     /**
@@ -24,8 +26,9 @@ public class Deck {
      * @return Card that has been distributed.
      */
     public Card getCard(){
-        Card c = deck.remove(0);
-        System.out.println(c.getCard());
+        Card c = deck.get(0);
+        deck.remove(0);
+        System.out.println("Sacado de la baraja: " + c.getCard());
         return c;
     }
 
@@ -33,44 +36,18 @@ public class Deck {
      * Method that generate and clutter the cards.
      */
     public void fillin(){
+        int[] cards = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        
         for(i=1; i<53;){
-            int number = (int) (Math.floor(Math.random()*13)+1);
-            Card card = generateCard(number);
-            deck.add(card);
-            i++;
-        }
-    }
-
-    private Card generateCard(int number){
-        Card card = null;
-        switch (number){
-            case 1:     card = Card.ACE;    break;
-            case 2:     card = Card.TWO;    break;
-            case 3:     card = Card.THREE;  break;
-            case 4:     card = Card.FOUR;   break;
-            case 5:     card = Card.FIVE;   break;
-            case 6:     card = Card.SIX;    break;
-            case 7:     card = Card.SEVEN;  break;
-            case 8:     card = Card.EIGHT;  break;
-            case 9:     card = Card.NINE;   break;
-            case 10:    card = Card.TEN;    break;
-            case 11:    card = Card.JACK;   break;
-            case 12:    card = Card.QUEEN;  break;
-            case 13:    card = Card.KING;   break;
-        }
-        generateType(card);
-        return card;
-    }
-
-    private void generateType(Card card){
-        int index=deck.lastIndexOf(card);
-        if (index==-1) card.setType(Type.CLUB);
-        else {
-            String lastType = (deck.get(index)).getTypeStr();
-            switch (lastType){
-                case "Club":      card.setType(Type.DIAMONDS);  break;
-                case "Diamonds":  card.setType(Type.HEARTS);    break;
-                case "Hearts":    card.setType(Type.SPADES);    break;
+            int nc;
+            nc = (int) (Math.floor(Math.random()*13)+1);
+            int numbercard = cards[nc];
+            if (numbercard<4){
+                deck.add(new Card(nc, numbercard));
+                System.out.println(deck.size() + ") Metido: " + nc);
+                //System.out.println(deck.size() + ") Primera: " + deck.get(0).getCard() + "\t Segunda: "+ deck.get(deck.size()-1).getCard());
+                i++;
+                cards[nc]+=1;
             }
         }
     }
