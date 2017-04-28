@@ -9,6 +9,7 @@ import bj.game.Player;
 import bj.util.Card;
 import bj.util.Deck;
 import java.awt.Color;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -515,19 +516,12 @@ public class PlayingWindow extends javax.swing.JFrame {
     }
     
     public void imprimeCartas(){
-
         ArrayList<Card> cartas;
-        //limpiaMesas();
-        Calendar calendario = new GregorianCalendar();
-        
         for(Player p: mesa){
             cartas = p.getHand().getHand();
-            int round = 1;
-            for(Card c: cartas){
-                c.setBounds(xPanel/2, 0);
-                movimientoCarta(p, c, round);
-                round++;
-            }
+            Card c = cartas.get(cartas.size()-1); 
+            c.setBounds(xPanel/2, 0);
+            movimientoCarta(p, c, cartas.size());
         }
     }
     
@@ -542,12 +536,16 @@ public class PlayingWindow extends javax.swing.JFrame {
         
         if (xFinal>x0){
             while(x<=xFinal){
+                try{sleep(1);}
+                catch(Exception e){}
                 y = y0 + (x - x0)*(yFinal - y0)/(xFinal-x0);
                 c.setBounds(x, y);
                 x++;   
             }
         } else {
             while(x>=xFinal){
+                try{sleep(1);}
+                catch(Exception e){}
                 y = y0 + (x - x0)*(yFinal - y0)/(xFinal-x0);
                 c.setBounds(x, y);
                 x--;   
