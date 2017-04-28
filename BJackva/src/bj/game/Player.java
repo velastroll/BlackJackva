@@ -11,13 +11,15 @@ public class Player{
     private boolean status;
     private Hand h;
     private String name;
+    private int number;
     
     
-    public Player(String name){
+    public Player(String name, int number){
         h = new Hand();
         status = true;
         bank=0;
         this.name = name;
+        this.number=number;
     }
     
     public Player(){
@@ -27,6 +29,13 @@ public class Player{
         this.name = "";
     }
     
+    public void setNumber(int number){
+        this.number=number;
+    }
+    
+    public int getNumber(){
+        return this.number;
+    }
 
     public void addCard(Card c){
         if (c==null) System.out.print("La carta es nula.");

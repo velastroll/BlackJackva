@@ -5,10 +5,13 @@ package bj.util;
  * The card has a type (Type), and a number/figure.
  * @author Velastroll - github.com/Velastroll
  */
-public class Card{
+public class Card extends javax.swing.JButton{
 
     int number;
     String type;
+    
+    private final int ancho = 28;
+    private final int alto = 40;
 
     public Card(){
         this.number = 22;
@@ -18,6 +21,8 @@ public class Card{
     public Card (int number, String type){
         this.number = number;
         this.type = type;
+        super.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+getCard()+".png")));
+
     }
     
     public Card (int number, int type){
@@ -26,8 +31,18 @@ public class Card{
         if (type==1) this.type="d";
         if (type==2) this.type="c";
         if (type==3) this.type="t";
+        super.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+getCard()+".png")));
+
     }
     
+    
+    public void setBounds(int x, int y){
+        super.setBounds(x, y, ancho, alto);
+        super.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+getCard()+".png")));
+
+            }
+    
+    //public void mover()
     
     /**
      * Set a type. Its a enum - DIAMONDS, SPADES, HEARTS, CLUB.
@@ -51,6 +66,7 @@ public class Card{
         this.number = number;
     }
     
+    
     /**
      * Return a String with the card number/figure.
      * @return String of card number/figure.
@@ -59,6 +75,7 @@ public class Card{
         return number;
     }
 
+    
     /**
      * Return a String with the number/figure and type card.
      * @return String of card.
@@ -67,6 +84,7 @@ public class Card{
         return (this.type + "" + this.number);
     }
 
+    
     /**
      * Return the card value.
      * @return int of card value.
@@ -75,5 +93,6 @@ public class Card{
         if (this.number==1) return 11;
         else if (this.number<10) return this.number;
         else return 10;
+        
     }
 }
