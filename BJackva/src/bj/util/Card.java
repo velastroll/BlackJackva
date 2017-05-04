@@ -38,11 +38,15 @@ public class Card extends javax.swing.JButton{
     
     public void setBounds(int x, int y){
         super.setBounds(x, y, ancho, alto);
-        super.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+getCard()+".png")));
+        super.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card/backcard.png")));
 
             }
     
-    //public void mover()
+    public void setImagen(String card){
+        super.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card/"+getCard()+".png")));
+    }
+    
+    
     
     /**
      * Set a type. Its a enum - DIAMONDS, SPADES, HEARTS, CLUB.

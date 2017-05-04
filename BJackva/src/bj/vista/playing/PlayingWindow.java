@@ -60,12 +60,11 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
         panelMesa = new javax.swing.JPanel();
         panelCroupier = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        botonLimpia = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        botonReparte = new javax.swing.JButton();
         panelPlayer = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         infoP5 = new javax.swing.JLabel();
@@ -83,39 +82,37 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
         infoP1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("BlackJackva - @Velastroll");
         setBackground(new java.awt.Color(29, 82, 38));
-        getContentPane().setLayout(new java.awt.CardLayout());
 
-        panelMesa.setBackground(new java.awt.Color(178, 218, 187));
+        panelMesa.setBackground(new java.awt.Color(12, 80, 11));
+        panelMesa.setPreferredSize(new java.awt.Dimension(350, 200));
+
+        javax.swing.GroupLayout panelMesaLayout = new javax.swing.GroupLayout(panelMesa);
+        panelMesa.setLayout(panelMesaLayout);
+        panelMesaLayout.setHorizontalGroup(
+            panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+        panelMesaLayout.setVerticalGroup(
+            panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panelMesa, java.awt.BorderLayout.CENTER);
 
         panelCroupier.setBackground(new java.awt.Color(12, 110, 10));
 
         jPanel7.setBackground(new java.awt.Color(12, 80, 11));
         jPanel7.setPreferredSize(new java.awt.Dimension(150, 0));
 
-        jButton2.setText("LIMPIAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonLimpia.setText("LIMPIAR");
+        botonLimpia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonLimpiaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
+        jPanel7.add(botonLimpia);
 
         jPanel8.setBackground(new java.awt.Color(12, 80, 11));
         jPanel8.setPreferredSize(new java.awt.Dimension(559, 100));
@@ -124,38 +121,23 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 271, Short.MAX_VALUE)
+            .addGap(0, 179, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 35, Short.MAX_VALUE)
         );
 
         jPanel13.setBackground(new java.awt.Color(12, 80, 11));
         jPanel13.setPreferredSize(new java.awt.Dimension(150, 0));
 
-        jButton1.setText("REPARTE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonReparte.setText("REPARTE");
+        botonReparte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonReparteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jButton1))
-        );
+        jPanel13.add(botonReparte);
 
         javax.swing.GroupLayout panelCroupierLayout = new javax.swing.GroupLayout(panelCroupier);
         panelCroupier.setLayout(panelCroupierLayout);
@@ -163,54 +145,32 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             panelCroupierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCroupierLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelCroupierLayout.setVerticalGroup(
             panelCroupierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCroupierLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelCroupierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jButton4.setText("jButton4");
-        jButton4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jButton4StateChanged(evt);
-            }
-        });
-        jButton4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton4KeyPressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelPlayerLayout = new javax.swing.GroupLayout(panelPlayer);
-        panelPlayer.setLayout(panelPlayerLayout);
-        panelPlayerLayout.setHorizontalGroup(
-            panelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPlayerLayout.createSequentialGroup()
-                .addGap(218, 218, 218)
-                .addComponent(jButton4)
+                .addGroup(panelCroupierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelPlayerLayout.setVerticalGroup(
-            panelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPlayerLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jButton4)
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
+
+        getContentPane().add(panelCroupier, java.awt.BorderLayout.PAGE_START);
+
+        panelPlayer.setBackground(new java.awt.Color(12, 80, 11));
+        panelPlayer.setPreferredSize(new java.awt.Dimension(550, 116));
+        panelPlayer.setLayout(new java.awt.GridLayout());
 
         jPanel2.setBackground(new java.awt.Color(12, 110, 10));
+        jPanel2.setPreferredSize(new java.awt.Dimension(100, 90));
 
         jLabel1.setFont(new java.awt.Font("Sawasdee", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
@@ -222,7 +182,32 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
         infoP5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoP5.setText("$");
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(infoP5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoP5)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        panelPlayer.add(jPanel2);
+
         jPanel4.setBackground(new java.awt.Color(12, 110, 10));
+        jPanel4.setPreferredSize(new java.awt.Dimension(100, 90));
+        jPanel4.setRequestFocusEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Sawasdee", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 254, 254));
@@ -241,11 +226,8 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(infoP4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(infoP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -255,10 +237,13 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoP4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
+        panelPlayer.add(jPanel4);
+
         jPanel6.setBackground(new java.awt.Color(12, 110, 10));
+        jPanel6.setPreferredSize(new java.awt.Dimension(100, 90));
 
         jLabel3.setFont(new java.awt.Font("Sawasdee", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(254, 254, 254));
@@ -277,7 +262,7 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(infoP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -288,10 +273,13 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoP3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
+        panelPlayer.add(jPanel6);
+
         jPanel10.setBackground(new java.awt.Color(12, 110, 10));
+        jPanel10.setPreferredSize(new java.awt.Dimension(100, 90));
 
         jLabel4.setFont(new java.awt.Font("Sawasdee", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
@@ -310,21 +298,24 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(infoP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoP2)
-                .addContainerGap())
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
+        panelPlayer.add(jPanel10);
+
         jPanel12.setBackground(new java.awt.Color(12, 110, 10));
+        jPanel12.setPreferredSize(new java.awt.Dimension(100, 90));
 
         jLabel5.setFont(new java.awt.Font("Sawasdee", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
@@ -344,7 +335,7 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(infoP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(infoP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -352,99 +343,37 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoP1)
-                .addContainerGap())
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                    .addComponent(infoP5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(infoP5)
-                        .addContainerGap())
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        panelPlayer.add(jPanel12);
 
-        javax.swing.GroupLayout panelMesaLayout = new javax.swing.GroupLayout(panelMesa);
-        panelMesa.setLayout(panelMesaLayout);
-        panelMesaLayout.setHorizontalGroup(
-            panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCroupier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panelMesaLayout.setVerticalGroup(
-            panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMesaLayout.createSequentialGroup()
-                .addComponent(panelCroupier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(panelPlayer, java.awt.BorderLayout.SOUTH);
 
-        getContentPane().add(panelMesa, "card2");
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonReparteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReparteActionPerformed
         
-        xPanel = this.panelPlayer.getWidth();
-        yPanel = this.panelPlayer.getHeight();       
+        xPanel = this.panelMesa.getWidth();
+        yPanel = this.panelMesa.getHeight();       
         hilo = new Thread(this);
         hilo.start();
         reparte=true;
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonReparteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonLimpiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiaActionPerformed
         rebootPlayers();
         limpiaMesa();
         baraja = new Deck();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton4KeyPressed
-        System.out.println(evt.getKeyChar());
-        switch(evt.getKeyChar()){
-            case 'a': jButton4.setLocation(jButton4.getLocation().x-10, jButton4.getLocation().y); break;
-            case 'd': jButton4.setLocation(jButton4.getLocation().x+10, jButton4.getLocation().y); break;
-            case 'w': jButton4.setLocation(jButton4.getLocation().x, jButton4.getLocation().y-10); break;
-            case 's': jButton4.setLocation(jButton4.getLocation().x, jButton4.getLocation().y+10); break;
-        }
-    }//GEN-LAST:event_jButton4KeyPressed
-
-    private void jButton4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jButton4StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4StateChanged
+        actualizaValor();
+        actualizaStatus();
+    }//GEN-LAST:event_botonLimpiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -491,15 +420,25 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
     }
     
     private void actualizaStatus(){
-        if (!p1.getStatus()) infoP1.setForeground(Color.RED);
+        
+        if(p1.getPoints()==21) infoP1.setForeground(Color.YELLOW);
+        else if (!p1.getStatus()) infoP1.setForeground(Color.RED);
         else infoP1.setForeground(Color.WHITE);
-        if (!p2.getStatus()) infoP2.setForeground(Color.RED);
+        
+        if(p2.getPoints()==21) infoP2.setForeground(Color.YELLOW);
+        else if (!p2.getStatus()) infoP2.setForeground(Color.RED);
         else infoP2.setForeground(Color.WHITE);
-        if (!p3.getStatus()) infoP3.setForeground(Color.RED);
+        
+        if(p3.getPoints()==21) infoP3.setForeground(Color.YELLOW);
+        else if (!p3.getStatus()) infoP3.setForeground(Color.RED);
         else infoP3.setForeground(Color.WHITE);
-        if (!p4.getStatus()) infoP4.setForeground(Color.RED);
+        
+        if(p4.getPoints()==21) infoP4.setForeground(Color.YELLOW);
+        else if (!p4.getStatus()) infoP4.setForeground(Color.RED);
         else infoP4.setForeground(Color.WHITE);
-        if (!p5.getStatus()) infoP5.setForeground(Color.RED);
+        
+        if(p5.getPoints()==21) infoP5.setForeground(Color.YELLOW);
+        else if (!p5.getStatus()) infoP5.setForeground(Color.RED);
         else infoP5.setForeground(Color.WHITE);
     }
        
@@ -526,10 +465,11 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
     
     private void movimientoCarta(Player p, Card c, int round){
         
-        panelPlayer.add(c);
+        panelMesa.add(c);
         int x0 = c.getLocation().x;
         int y0 = c.getLocation().y;
-        int xFinal = (xPanel - (p.getNumber() - 1)*100 - 45);
+        int hueco = xPanel/5;
+        int xFinal = (xPanel - (p.getNumber() - 1)*(xPanel/5) - 45);
         int yFinal = (yPanel - 50*round);
         int y;
         int x = x0;
@@ -537,8 +477,7 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             while(x<=xFinal){
                 y = y0 + (x - x0)*(yFinal - y0)/(xFinal-x0);
                 c.setBounds(x, y);
-                x++;   
-                System.out.print("s");
+                x++;
                 try{hilo.sleep(1);}
                 catch(Exception ex){}
             }
@@ -546,17 +485,17 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
             while(x>=xFinal){
                 y = y0 + (x - x0)*(yFinal - y0)/(xFinal-x0);
                 c.setBounds(x, y);
-                x--;   
-                System.out.print("e");  
+                x--;  
                 try{hilo.sleep(1);}
                 catch(Exception ex){}
             }
         }
+        c.setImagen(c.getCard());
         p.updateSatus();
     }
 
     private void limpiaMesa(){
-        panelPlayer.removeAll();
+        panelMesa.removeAll();
         repaint();
     }
 
@@ -570,14 +509,13 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonLimpia;
+    private javax.swing.JButton botonReparte;
     private javax.swing.JLabel infoP1;
     private javax.swing.JLabel infoP2;
     private javax.swing.JLabel infoP3;
     private javax.swing.JLabel infoP4;
     private javax.swing.JLabel infoP5;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -595,18 +533,19 @@ public class PlayingWindow extends javax.swing.JFrame implements Runnable {
     private javax.swing.JPanel panelMesa;
     private javax.swing.JPanel panelPlayer;
     // End of variables declaration//GEN-END:variables
-
-
     
     @Override
     public void run(){
-        while(hilo.isAlive()){
+        
+        while(hilo.isAlive()){ // Se ejecuta cuando el hilo esta en funcionamiento.
+            
+            
             while(reparte){
                 reparteCartas();
                 imprimeCartas();
                 actualizaStatus();
                 reparte=false;
-                hilo.destroy();
+                hilo.stop();
             }
         }
     }
