@@ -42,7 +42,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="panelCroupier" max="32767" attributes="0"/>
-              <Component id="panelPlayer" max="32767" attributes="0"/>
+              <Component id="panelPlayer" pref="540" max="32767" attributes="0"/>
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>

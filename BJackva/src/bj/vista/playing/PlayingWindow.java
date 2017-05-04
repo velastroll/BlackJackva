@@ -9,28 +9,22 @@ import bj.game.Player;
 import bj.util.Card;
 import bj.util.Deck;
 import java.awt.Color;
-import static java.lang.Thread.sleep;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import javax.swing.JLabel;
 
 /**
  *
  * @author alvaro
  */
-public class PlayingWindow extends javax.swing.JFrame {
+public class PlayingWindow extends javax.swing.JFrame implements Runnable {
 
     private Deck baraja;
     private ArrayList<Player> mesa;
-    private ArrayList<JLabel> playerlabel;
-    private Player p1;
-    private Player p2;
-    private Player p3;
-    private Player p4;
-    private Player p5;
-    int xPanel;
-    int yPanel;
+    private ArrayList<JLabel> playerlabel; 
+    private Player p1, p2, p3, p4, p5;
+    int xPanel, yPanel;
+    boolean reparte = false;
+    Thread hilo;
     
     /**
      * Creates new form PlayingWindow
@@ -41,8 +35,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         
         baraja = new Deck();
         mesa = new ArrayList<Player>();
-        playerlabel = new ArrayList<JLabel>();
-        
+        playerlabel = new ArrayList<JLabel>();  
         p1 = new Player("player1", 1);     mesa.add(p1);  playerlabel.add(jLabel5);
         p2 = new Player("player2", 2);     mesa.add(p2);  playerlabel.add(jLabel4);
         p3 = new Player("Eustaquio", 3);   mesa.add(p3);  playerlabel.add(jLabel3);
@@ -50,7 +43,9 @@ public class PlayingWindow extends javax.swing.JFrame {
         p5 = new Player("player5", 5);     mesa.add(p5);  playerlabel.add(jLabel1);
         
         for(int i = 0; i<5; i++) playerlabel.get(i).setText(mesa.get(i).getName());
-        
+       
+        //hilo.start();
+       
     }
 
     /**
@@ -403,7 +398,7 @@ public class PlayingWindow extends javax.swing.JFrame {
         panelMesaLayout.setHorizontalGroup(
             panelMesaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelCroupier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMesaLayout.setVerticalGroup(
@@ -422,12 +417,13 @@ public class PlayingWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         xPanel = this.panelPlayer.getWidth();
-        yPanel = this.panelPlayer.getHeight();
-        reparteCartas();
-        imprimeCartas();
-        actualizaStatus();
-        System.out.println("Tamaño del programa: " + panelMesa.getSize() );
+        yPanel = this.panelPlayer.getHeight();       
+        hilo = new Thread(this);
+        hilo.start();
+        reparte=true;
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -513,44 +509,50 @@ public class PlayingWindow extends javax.swing.JFrame {
         infoP3.setText("Puntos: "+ p3.getPoints());
         infoP4.setText("Puntos: "+ p4.getPoints());
         infoP5.setText("Puntos: "+ p5.getPoints());
+        
     }
     
     public void imprimeCartas(){
         ArrayList<Card> cartas;
         for(Player p: mesa){
-            cartas = p.getHand().getHand();
-            Card c = cartas.get(cartas.size()-1); 
-            c.setBounds(xPanel/2, 0);
-            movimientoCarta(p, c, cartas.size());
+            if (p.getStatus()){
+                cartas = p.getHand().getHand();
+                Card c = cartas.get(cartas.size()-1); 
+                c.setBounds(xPanel/2, 0);
+                movimientoCarta(p, c, cartas.size());
+            }
         }
     }
     
     private void movimientoCarta(Player p, Card c, int round){
+        
         panelPlayer.add(c);
         int x0 = c.getLocation().x;
         int y0 = c.getLocation().y;
-        int xFinal = (xPanel - (p.getNumber()-1)*100 -45);
-        int yFinal = (yPanel-50*round);
+        int xFinal = (xPanel - (p.getNumber() - 1)*100 - 45);
+        int yFinal = (yPanel - 50*round);
         int y;
         int x = x0;
-        
         if (xFinal>x0){
             while(x<=xFinal){
-                try{sleep(1);}
-                catch(Exception e){}
                 y = y0 + (x - x0)*(yFinal - y0)/(xFinal-x0);
                 c.setBounds(x, y);
                 x++;   
+                System.out.print("s");
+                try{hilo.sleep(1);}
+                catch(Exception ex){}
             }
         } else {
             while(x>=xFinal){
-                try{sleep(1);}
-                catch(Exception e){}
                 y = y0 + (x - x0)*(yFinal - y0)/(xFinal-x0);
                 c.setBounds(x, y);
                 x--;   
+                System.out.print("e");  
+                try{hilo.sleep(1);}
+                catch(Exception ex){}
             }
         }
+        p.updateSatus();
     }
 
     private void limpiaMesa(){
@@ -593,4 +595,19 @@ public class PlayingWindow extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesa;
     private javax.swing.JPanel panelPlayer;
     // End of variables declaration//GEN-END:variables
+
+
+    
+    @Override
+    public void run(){
+        while(hilo.isAlive()){
+            while(reparte){
+                reparteCartas();
+                imprimeCartas();
+                actualizaStatus();
+                reparte=false;
+                hilo.destroy();
+            }
+        }
+    }
 }

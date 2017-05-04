@@ -39,10 +39,7 @@ public class Player{
 
     public void addCard(Card c){
         if (c==null) System.out.print("La carta es nula.");
-        else{
-            h.newCard(c);
-            if (h.getValue()>=22) status=false;
-        }
+        else h.newCard(c);
     }
     
     public String getName(){
@@ -72,6 +69,11 @@ public class Player{
     
     public boolean getStatus(){
         return status;
+    }
+    
+    public void updateSatus(){
+        if (getPoints()>=21) status=false;
+        else status = true;
     }
     
     public void reboot(){
