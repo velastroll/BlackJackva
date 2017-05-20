@@ -24,7 +24,7 @@ public class Deck {
      */
     public Card getCard(){
         Card c = deck.remove(0);
-        System.out.println(c.getCard());
+        System.out.print(c.getCard());
         return c;
     }
 

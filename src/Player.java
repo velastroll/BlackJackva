@@ -8,13 +8,15 @@ import java.lang.IllegalArgumentException;
 
 public class Player{
 
-    private int bank;
+    String name;
+    private double bank;
     private boolean state;
     public Hand h;
-    public Player(){
+    public Player(String name){
         h = new Hand();
         state = true;
         bank=0;
+        this.name = name;
     }
 
     public void addCard(Card c){
@@ -29,8 +31,16 @@ public class Player{
         return h.getValue();
     }
 
+    public double getBank(){
+        return bank;
+    }
+
     public void setMoney(double money){
         bank += money;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void bet(double chip) throws BankException{
